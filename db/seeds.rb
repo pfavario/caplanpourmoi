@@ -51,7 +51,7 @@ Role.create!(name: "mécano",
 Role.create!(name: "magasinier",
             )
 
-# un assigned value : color_role
+# un-assigned value : color_role
 
 
 puts "5 - Creating users (aka team members)"
@@ -294,7 +294,7 @@ Constraint.create!(start_at: "2017-09-15 08:00",
                   user_id: User.find_by_first_name('pierre').id
                   )
 
-puts "8 - creating planning skeleton"
+puts "8 - creating planning"
 puts ""
 
 p = Planning.new
@@ -303,7 +303,7 @@ p.year = 2017
 p.save!
 # p.name: ""
 
-puts "8 - adding SLOTS"
+puts "8 - adding SLOTS + solution"
 puts ""
 
 # 1
@@ -736,6 +736,13 @@ User.create!(email: "wtf@boutique.com",
             last_name: "Last name",
             password: "password"
   )
+User.create!(email: "unknown@boutique.com",
+            working_hours: 32,
+            is_owner: false,
+            first_name: "unknow",
+            last_name: "Last name",
+            password: "password"
+  )
 
 #pas de user_id
 # UNATTRIBUTED SLOT --> PROBLEM OF RESSOURCES
@@ -756,10 +763,6 @@ Slot.create!(
   role_id: Role.find_by_name("magasinier").id,
   user_id: User.find_by_first_name("magalie").id
   )
-
-
-puts "9 - creating planning SOLUTION"
-puts "ok via table slots"
 
 
 puts ""
